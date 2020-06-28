@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>H145 T2 Panel</title>
+        <meta charset="utf-8">
+        <meta id="viewport_meta" name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+        <link rel="stylesheet" href="src/reset.css">
+        <link rel="stylesheet" href="src/style.css">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
+        <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+        <script src="src/two.min.js"></script>
+    </head>
+    <body>
+        <div id="main_screen" class="position_relative">
+            <div id="screen_test" class="position_absolute">
+                <div class="position_relative w-100 h-100">
+                    <div class="position_absolute">
+                        <img src="assets/images/panel_test_1.png" width="1135px" height="1465px">
+                    </div>
+                </div>
+            </div>
+            <div id="screen_engine" class="position_absolute">
+                <div class="position_relative w-100 h-100" style="z-index: 1005;">
+                    <div class="indicator indicator_loading" style="margin-top:200px; margin-left:325px;">
+                        <p id="eng1_trq">&#x1F7BC;&#x1F7BC;<small>.&#x1F7BC;</small> %</p>
+                    </div>
+                    <div class="indicator indicator_loading" style="margin-top:0px; margin-left:140px;">
+                        <p id="eng2_trq">&#x1F7BC;&#x1F7BC;<small>.&#x1F7BC;</small> %</p>
+                    </div>
+                    <br>
+                    <div class="indicator indicator_loading" style="margin-top:90px; margin-left:75px;">
+                        <p id="eng1_egt">&#x1F7BC;&#x1F7BC;&#x1F7BC; °C</p>
+                    </div>
+                    <div class="indicator indicator_loading" style="margin-top:0px; margin-left:565px;">
+                        <p id="eng2_egt">&#x1F7BC;&#x1F7BC;&#x1F7BC; °C</p>
+                    </div>
+                    <br>
+                    <div class="indicator indicator_loading" style="margin-top:35px; margin-left:320px;">
+                        <p id="eng1_n1">&#x1F7BC;&#x1F7BC;<small>.&#x1F7BC;</small> %</p>
+                    </div>
+                    <div class="indicator indicator_loading" style="margin-top:0px; margin-left:100px;">
+                        <p id="eng2_n1">&#x1F7BC;&#x1F7BC;<small>.&#x1F7BC;</small> %</p>
+                    </div>
+                    <br>
+                    <div class="indicator indicator_loading" style="margin-top: 200px; margin-left: 80px; width: 75px;">
+                        <p id="hyd_1">&#x1F7BC;&#x1F7BC;</p>
+                    </div>
+                    <div class="indicator indicator_loading" style="margin-top: 0px; margin-left: 35px; width: 75px;">
+                        <p id="hyd_2">&#x1F7BC;&#x1F7BC;</p>
+                    </div>
+                    <div class="indicator indicator_loading" style="margin-top: 0px; margin-left: 155px; width: 75px;">
+                        <p id="oilp_1">&#x1F7BC;&#x1F7BC;</p>
+                    </div>
+                    <div class="indicator indicator_loading" style="margin-top: 0px; margin-left: 155px; width: 75px;">
+                        <p id="oilp_2">&#x1F7BC;&#x1F7BC;</p>
+                    </div>
+                    <div class="indicator indicator_loading" style="margin-top: 0px; margin-left: 40px; width: 75px;">
+                        <p id="mgb_press">&#x1F7BC;&#x1F7BC;</p>
+                    </div>
+                    <div class="indicator indicator_loading" style="margin-top: 0px; margin-left: 30px; width: 75px;">
+                        <p id="mgb_temp">&#x1F7BC;&#x1F7BC;</p>
+                    </div>
+                    <br>
+                    <div class="fuel_indicator indicator_loaded" style="margin-top:120px; margin-left:625px;">
+                      <p id="gen1_amp">&#x1F7BC;&#x1F7BC;.&#x1F7BC;</p>
+                    </div>
+                    <div class="fuel_indicator indicator_loaded" style="margin-top:0px; margin-left:57px;">
+                      <p id="bat_volt">&#x1F7BC;&#x1F7BC;.&#x1F7BC;</p>
+                    </div>
+                    <div class="fuel_indicator indicator_loaded" style="margin-top:0px; margin-left:60px;">
+                      <p id="gen2_amp">&#x1F7BC;&#x1F7BC;.&#x1F7BC;</p>
+                    </div>
+                    <br>
+                    <div class="fuel_indicator indicator_loaded" style="margin-top:50px; margin-left:80px;">
+                      <p id="fuel_ff_0">&#x1F7BC;&#x1F7BC;</p>
+                    </div>
+                    <div class="fuel_indicator indicator_loaded" style="margin-top:0px; margin-left:15px;">
+                      <p id="fuel_left">&#x1F7BC;&#x1F7BC;</p>
+                    </div>
+                    <div class="fuel_indicator indicator_loaded" style="margin-top:0px; margin-left:5px;">
+                      <p id="fuel_center">&#x1F7BC;&#x1F7BC;&#x1F7BC;</p>
+                    </div>
+                    <div class="fuel_indicator indicator_loaded" style="margin-top:0px; margin-left:20px;">
+                      <p id="fuel_right">&#x1F7BC;&#x1F7BC;</p>
+                    </div>
+                    <div class="fuel_indicator indicator_loaded" style="margin-top:0px; margin-left:25px;">
+                      <p id="fuel_ff_1">&#x1F7BC;&#x1F7BC;</p>
+                    </div>
+                </div>
+                <div class="position_absolute w-100 h-100" style="z-index:1004;">
+                    <div class="label" style="margin-top:165px; margin-left:342px;">
+                        <p>TRQ</p>
+                    </div>
+                    <div class="label" style="margin-left:258px;">
+                        <p>TRQ</p>
+                    </div>
+                    <br>
+                    <div class="label" style="margin-top: 90px; margin-left: 130px;">
+                        <p>TOT</p>
+                    </div>
+                    <div class="label" style="margin-left:680px;">
+                        <p>TOT</p>
+                    </div>
+                    <br>
+                    <div class="label" style="margin-top: 35px; margin-left:377px;">
+                        <p>N1</p>
+                    </div>
+                    <div class="label" style="margin-left:225px;">
+                        <p>N1</p>
+                    </div>
+                </div>
+                <div id="screen_engine_draw" class="position_relative w-100 h-100">
+                </div>
+                <div id="screen_engine_bottom" class="position_absolute">
+                    <div id="screen_engine_bottom_prev" class="position_relative w-100 h-100">
+                        <div class="" style="margin-left:125px; margin-top: 1000px;font-size:42px;">
+                            <p>WEIGHT & PERFORMANCE</p>
+                        </div>
+                        <br>
+                        <div class="" style="margin-left:175px; margin-top: 25px;font-size:32px;">
+                            <p>TOTAL</p>
+                        </div>
+                        <div class="" style="margin-left:175px; margin-top: 0px;font-size:36px;">
+                            <p id="prev_total_weight">&#x1F7BC;&#x1F7BC;&#x1F7BC;&#x1F7BC; Kg</p>
+                        </div>
+                        <br>
+                        <div class="label" style="margin-left:760px; margin-top: 20px;font-size:36px;">
+                            <p id="prev_n2">&#x1F7BC;&#x1F7BC;&#x1F7BC;<small>.&#x1F7BC;</small></p>
+                        </div>
+                        <br>
+                        <div class="label" style="margin-left:630px; margin-top: 130px;font-size:36px;">
+                            <p id="prev_n2_1">&#x1F7BC;&#x1F7BC;&#x1F7BC;<small>.&#x1F7BC;</small> %</p>
+                        </div>
+                        <div class="" style="margin-left:50px; margin-top: 0px;font-size:36px;">
+                            <p>N2</p>
+                        </div>
+                        <div class="label" style="margin-left:50px; margin-top: 0px;font-size:36px;">
+                            <p id="prev_n2_2">&#x1F7BC;&#x1F7BC;&#x1F7BC;<small>.&#x1F7BC; %</small></p>
+                        </div>
+                        <div id="screen_engine_draw_bottom_prev" class="position_relative w-100 h-100">
+                        </div>
+                    </div>
+                    <div id="screen_engine_bottom_weight" class="position_relative w-100 h-100">
+                        <div class="" style="margin-left:400px; margin-top: 1000px;font-size:42px;">
+                            <p>WEIGHT COMPUTATION</p>
+                        </div>
+                        <br>
+                        <div class="" style="margin-left:175px; margin-top: 25px;font-size:32px;">
+                            <p>PAYLOAD</p>
+                        </div>
+                        <div class="indicator" style="margin-left:450px; margin-top: 0px;font-size:36px;">
+                            <p id="weight_total_payload">&#x1F7BC;&#x1F7BC;&#x1F7BC; KG</p>
+                        </div>
+                        <br>
+                        <div class="" style="margin-left:175px; margin-top: 25px;font-size:32px;">
+                            <p>CREW</p>
+                        </div>
+                        <div class="indicator" style="margin-left:495px; margin-top: 0px;font-size:36px;">
+                            <p id="weight_total_crew">&#x1F7BC;&#x1F7BC;&#x1F7BC; KG</p>
+                        </div>
+                        <br>
+                        <div class="" style="margin-left:175px; margin-top: 25px;font-size:32px;">
+                            <p>EMPTY EQUIPPED</p>
+                        </div>
+                        <div class="indicator" style="margin-left:347px; margin-top: 0px;font-size:36px;">
+                            <p id="weight_total_empty">&#x1F7BC;&#x1F7BC;&#x1F7BC;&#x1F7BC; KG</p>
+                        </div>
+                        <br>
+                        <div class="" style="margin-left:175px; margin-top: 25px;font-size:32px;">
+                            <p>TOTAL FUEL</p>
+                        </div>
+                        <div class="indicator" style="margin-left:420px; margin-top: 0px;font-size:36px;">
+                            <p id="weight_fuel_total">&#x1F7BC;&#x1F7BC;&#x1F7BC; KG</p>
+                        </div>
+                        <br>
+                        <div class="" style="margin-left:175px; margin-top: 25px;font-size:32px;">
+                            <p>TOTAL</p>
+                        </div>
+                        <div class="indicator" style="margin-left:490px; margin-top: 0px;font-size:36px;">
+                            <p id="weight_total_weight">&#x1F7BC;&#x1F7BC;&#x1F7BC;&#x1F7BC; KG</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="screen_dmap" class="position_absolute">
+                <div class="position_relative w-100 h-100">
+                    <div id="dmap" class="w-100 h-100">
+                    </div>
+                </div>
+            </div>
+            <div id="screen_commands" class="position_absolute w-100 h-100">
+                <div class="position_relative">
+                    <div id="fmd_button" class="MFD_option" style=" margin-left: 0px;">
+                        <p>FMD</p>
+                    </div>
+                    <div id="navd_button" class="MFD_option" style=" margin-left: 100px;">
+                        <p>NAVD</p>
+                    </div>
+                    <div id="dmap_button" class="MFD_option" style=" margin-left: 225px;">
+                        <p>DMAP</p>
+                    </div>
+                    <div id="misc_button" class="MFD_option" style=" margin-left: 100px;">
+                        <p>MISC</p>
+                    </div>
+                    <div id="efb_button" class="MFD_option" style=" margin-left: 90px;">
+                        <p>EFB</p>
+                    </div>
+                    <div id="prev_button" class="MFD_option" style=" margin-left: 0px; margin-top: 1325px;">
+                        <p>PREV</p>
+                    </div>
+                    <div id="epc_button" class="MFD_option" style=" margin-left: 290px; margin-top: 1325px;">
+                        <p>EPC</p>
+                    </div>
+                    <div id="status_button" class="MFD_option" style=" margin-left: 100px;">
+                        <p>STATUS</p>
+                    </div>
+                    <div id="weight_button" class="MFD_option" style=" margin-left: 225px;">
+                        <p>WEIGHT</p>
+                    </div>
+                </div>
+                <div class="position_relative">
+                    <div id="syst_button" class="MFD_option_vertical" style=" margin-left: 0px; margin-top:100px;">
+                        <p>SYST</p>
+                    </div>
+                    <div id="rcnf_button" class="MFD_option_vertical" style=" margin-left: 0px; margin-top:50px;">
+                        <p>RCNF</p>
+                    </div>
+                    <div id="data_button" class="MFD_option_vertical" style=" margin-left: 0px; margin-top:550px;">
+                        <p>DATA</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="src/jquery-3.5.1.min.js"></script>
+        <script src="src/main.js"></script>
+    </body>
+
+</html>
