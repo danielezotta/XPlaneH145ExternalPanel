@@ -372,8 +372,8 @@ $(document).ready(function(){
 
     two.update();
 
-    var n21_arc = bottom_prev_two.makeArcSegment(830, 1130, 0, 75, 4.712388, 4.712388);
-    var n22_arc = bottom_prev_two.makeArcSegment(830, 1130, 0, 75, 4.712388, 4.712388);
+    var n21_arc = bottom_prev_two.makeArcSegment(830, 1130, 0, 75, -4.71239, -4.72);
+    var n22_arc = bottom_prev_two.makeArcSegment(830, 1130, 0, 75, -4.71239, -4.71);
     var prev_bottom_n2 = bottom_prev_two.makeArcSegment(830, 1130, 100, 105, -4.712388, 0);
     var prev_bottom_line = bottom_prev_two.makeLine(605, 965, 605, 1375);
     var n21_ind = bottom_prev_two.makePath(...getIndVerticesFor(740, 1120));
@@ -574,8 +574,8 @@ $(document).ready(function(){
                     $("#prev_n2_1").text(data.n2_1 + " %");
                     $("#prev_n2_2").text(data.n2_2 + " %");
                     $("#prev_n2").text(data.n2_1);
-                    n21_arc.endAngle = mapN2Angle(data.n2_1);
-                    n22_arc.endAngle = mapN2Angle(data.n2_2);
+                    n21_arc.endAngle = mapN2Angle(data.n2_1)-3.14;
+                    n22_arc.endAngle = mapN2Angle(data.n2_2)-3.14;
                     n21_ind.rotation = mapN2Angle(data.n2_1);
                     n22_ind.rotation = mapN2Angle(data.n2_2);
                     n21_holder.rotation = mapN2Angle(data.n2_1);
