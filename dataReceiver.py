@@ -115,12 +115,14 @@ async def send_data(websocket, path):
     mgbPress = "sim/flightmodel/transmissions/xmsn_press"
     mgbTemp = "sim/flightmodel/transmissions/xmsn_temp"
     payload = "sim/flightmodel/weight/m_fixed"
+    pressure = "sim/weather/barometer_current_inhg"
+    temperature = "sim/weather/temperature_ambient_c"
 
     while True:
         values = dict()
         try:
 
-            res = client1.getDREFs([egt, n1, n2, tq, fuelTanks, fuelFlow, oilTemp, oilPress, oilQty, lat, lon, hyd1, hyd2, genOn, gen, bat, mgbTemp, mgbPress, hdg, grossWt, totalFuel, payload])
+            res = client1.getDREFs([egt, n1, n2, tq, fuelTanks, fuelFlow, oilTemp, oilPress, oilQty, lat, lon, hyd1, hyd2, genOn, gen, bat, mgbTemp, mgbPress, hdg, grossWt, totalFuel, payload, pressure, temperature])
 
             values["egt_1"] = round(res[0][0], 0)
             values["egt_2"] = round(res[0][1], 0)
@@ -157,6 +159,8 @@ async def send_data(websocket, path):
             values["fuel_t"] = round(res[20][0], 0)
             values["weight_p"] = round(res[21][0], 0)
             values["weight_e"] = round(res[19][0] - res[20][0] - res[21][0], 0)
+            values["pressure"] = "{:.2f}".format(res[22][0])
+            values["temperature"] = "{:.1f}".format(res[23][0])
 
         except ValueError:
 

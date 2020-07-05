@@ -44,12 +44,20 @@ function setCurrentMode() {
             case "weight_button":
                 bottomMode = "weight";
                 $("#screen_engine_bottom_prev").hide();
+                $("#screen_engine_bottom_status").hide();
                 $("#screen_engine_bottom_weight").show();
                 break;
             case "prev_button":
                 bottomMode = "prev";
                 $("#screen_engine_bottom_weight").hide();
+                $("#screen_engine_bottom_status").hide();
                 $("#screen_engine_bottom_prev").show();
+                break;
+            case "status_button":
+                bottomMode = "status";
+                $("#screen_engine_bottom_prev").hide();
+                $("#screen_engine_bottom_weight").hide();
+                $("#screen_engine_bottom_status").show();
                 break;
             default:
                 mode = "prev";
@@ -169,10 +177,12 @@ function mapN2Angle(n2) {
 }
 
 $(document).ready(function(){
+
     var init = true;
     var ip = "127.0.0.1";
     var port = 8081;
     test();
+
     $.getJSON("conf.json", function(data) {
         ip = data.ip;
         port = data.port;
@@ -519,7 +529,7 @@ $(document).ready(function(){
             n12_ind.rotation = mapN1Angle(data.n1_2) - Math.PI;
             trq1_ind.rotation = mapTrqAngle(data.trq_1) - Math.PI;
             trq2_ind.rotation = mapTrqAngle(data.trq_2) - Math.PI;
-            
+
             n11_val.endAngle = mapN1Angle(data.n1_1);
             n12_val.endAngle = mapN1Angle(data.n1_2);
             egt1_val.endAngle = mapEgtAngle(data.egt_1);
@@ -561,7 +571,7 @@ $(document).ready(function(){
 
             if (init == true) {
                 init = false;
-                //initMap(data.lat, data.lon);
+                initMap(data.lat, data.lon);
             }
 
             if (mode == "dmap") {
@@ -580,13 +590,19 @@ $(document).ready(function(){
                     n22_ind.rotation = mapN2Angle(data.n2_2);
                     n21_holder.rotation = mapN2Angle(data.n2_1);
                     n22_arrow.rotation = mapN2Angle(data.n2_2);
-
                     bottom_prev_two.update();
                 } else if (bottomMode == "weight") {
                     $("#weight_total_weight").text(data.weight + " KG");
                     $("#weight_fuel_total").text(data.fuel_t + " KG");
                     $("#weight_total_payload").text(data.weight_p + " KG");
                     $("#weight_total_empty").text(data.weight_e + " KG");
+                } else if (bottomMode == "status") {
+                    $("#status_n2_1").text(data.n2_1 + " %");
+                    $("#status_n2_2").text(data.n2_2 + " %");
+                    $("#status_pressure_1").text(data.pressure + " hPa");
+                    $("#status_pressure_2").text(data.pressure + " hPa");
+                    $("#status_temperature_1").text(data.temperature + " °C");
+                    $("#status_temperature_2").text(data.temperature + " °C");
                 }
             }
 
