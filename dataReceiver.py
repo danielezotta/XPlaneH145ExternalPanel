@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+# windows : pyinstaller -F dataReceiver.py --noupx --hidden-import graphics --hidden-import websockets --noconsole
+
 import xpc
 import json
 import socket
