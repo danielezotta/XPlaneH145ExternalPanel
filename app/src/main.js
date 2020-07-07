@@ -597,12 +597,12 @@ $(document).ready(function(){
                     $("#weight_total_payload").text(data.weight_p + " KG");
                     $("#weight_total_empty").text(data.weight_e + " KG");
                 } else if (bottomMode == "status") {
-                    $("#status_n2_1").text(data.n2_1 + " %");
-                    $("#status_n2_2").text(data.n2_2 + " %");
-                    $("#status_pressure_1").text(data.pressure + " hPa");
-                    $("#status_pressure_2").text(data.pressure + " hPa");
-                    $("#status_temperature_1").text(data.temperature + " °C");
-                    $("#status_temperature_2").text(data.temperature + " °C");
+                    $("#status_n2_1").html(data.n2_1 + " <span class='opacity-50'>%</span>");
+                    $("#status_n2_2").html(data.n2_2 + " <span class='opacity-50'>%</span>");
+                    $("#status_pressure_1").html(data.pressure + " <span class='opacity-50'>hPa</span>");
+                    $("#status_pressure_2").html(data.pressure + " <span class='opacity-50'>hPa</span>");
+                    $("#status_temperature_1").html(data.temperature + " <span class='opacity-50'>°C</span>");
+                    $("#status_temperature_2").html(data.temperature + " <span class='opacity-50'>°C</span>");
                 }
             }
 

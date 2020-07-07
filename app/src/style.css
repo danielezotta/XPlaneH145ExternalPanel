@@ -171,3 +171,7 @@ body {
 .MFD_option_vertical > p {
     margin: 0px;
 }
+
+.opacity-50 {
+    opacity: 0.5;
+}

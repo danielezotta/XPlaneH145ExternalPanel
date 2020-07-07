@@ -6,7 +6,13 @@ Early version of an external MFD for the H145 in X-Plane
 <img src="examples/preview1.jpg" alt="preview" width="400px"/>
 <img src="examples/preview2.jpg" alt="preview" width="400px"/>
 
-### Basic info
+##Help (before reading below) 
+
+I need help from anyone who as any resource on the Helionix system so I can get a best replica of it. If you know
+anything more or you have some material, send a private message via [mail](mailto:danielezotta@gmail.com).
+
+
+## Basic info
 For now the application uses the XPlaneConnect plugin from NASA. You need to have that installed.
 The communication between XPlane and the monitor is coded in Python 3.8, the monitor in HTML/CSS/Javascript.
 
