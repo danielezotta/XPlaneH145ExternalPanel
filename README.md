@@ -1,7 +1,7 @@
 # XPlaneH145ExternalPanel
 Early version of an external MFD for the H145 in X-Plane
 
-<iframe width="1280" height="720" src="https://www.youtube.com/embed/_tj4wiKTeF4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[Video preview 1](https://www.youtube.com/watch?v=_tj4wiKTeF4)
 <img src="examples/preview1.jpg" alt="preview" width="400px"/>
 <img src="examples/preview2.jpg" alt="preview" width="400px"/>
 
