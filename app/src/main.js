@@ -75,7 +75,9 @@ function setCurrentMode() {
 function initMap(lat, lon) {
     map = L.map('dmap', {
         center: [10, 45],
-        zoom: 16
+        zoom: 17,
+        zoomControl: false,
+        attributionControl: false
     });
     L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
     	maxZoom: 18,
@@ -585,6 +587,7 @@ $(document).ready(function(){
                 mapMarker.setLatLng([data.lat, data.lon]);
                 mapMarker.setRotationAngle(data.hdg);
                 map.invalidateSize();
+                $("#dmap_heading").text("HDG " + data.hdg + "°");
             } else if (mode == "prev") {
                 if (bottomMode == "prev") {
                     $("#prev_total_weight").text(data.weight + " KG");

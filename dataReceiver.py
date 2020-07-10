@@ -156,7 +156,7 @@ async def send_data(websocket, path):
             values["bat"] = "{:.1f}".format(round(res[15][0], 1))
             values["mgb_t"] = "{:.1f}".format(round(res[16][0], 1))
             values["mgb_p"] = "{:.1f}".format(round(res[17][0], 1))
-            values["hdg"] = round(res[18][0], 1)
+            values["hdg"] = "{:0>3.0f}".format(round(res[18][0], 0))
             values["weight"] = round(res[19][0], 0)
             values["fuel_t"] = round(res[20][0], 0)
             values["weight_p"] = round(res[21][0], 0)
