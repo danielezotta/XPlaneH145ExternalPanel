@@ -33,13 +33,18 @@ function test() {
 function setCurrentMode() {
     $(".MFD_option").on('click', function(event){
         switch (this.id) {
+            case "vms_button":
+                mode = "prev";
+                $("#screen_engine").show();
+                $("#screen_dmap").hide();
+                break;
             case "dmap_button":
                 mode = "dmap";
                 $("#screen_engine").hide();
                 $("#screen_dmap").show();
-                map.panTo([data.lat, data.lon]);
-                mapMarker.setLatLng([data.lat, data.lon]);
-                map.invalidateSize();
+//                map.panTo([data.lat, data.lon]);
+//                mapMarker.setLatLng([data.lat, data.lon]);
+//                map.invalidateSize();
                 break;
             case "weight_button":
                 bottomMode = "weight";
@@ -73,7 +78,7 @@ function initMap(lat, lon) {
         zoom: 16
     });
     L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
-    	maxZoom: 17,
+    	maxZoom: 18,
     	attribution: 'Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
     }).addTo(map);
     mapIcon = L.icon({
@@ -86,6 +91,7 @@ function initMap(lat, lon) {
         keyboard : false
     });
     mapMarker.setLatLng([lat, lon]);
+    mapMarker.setRotationOrigin('center center')
     mapMarker.addTo(map);
     map.invalidateSize();
 }
@@ -577,6 +583,7 @@ $(document).ready(function(){
             if (mode == "dmap") {
                 map.panTo([data.lat, data.lon]);
                 mapMarker.setLatLng([data.lat, data.lon]);
+                mapMarker.setRotationAngle(data.hdg);
                 map.invalidateSize();
             } else if (mode == "prev") {
                 if (bottomMode == "prev") {

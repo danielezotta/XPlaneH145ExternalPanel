@@ -6,11 +6,24 @@ Early version of an external MFD for the H145 in X-Plane
 <img src="examples/preview1.jpg" alt="preview" width="400px"/>
 <img src="examples/preview2.jpg" alt="preview" width="400px"/>
 
-##Help (before reading below) 
+## Help (before reading below) 
 
 I need help from anyone who as any resource on the Helionix system so I can get a best replica of it. If you know
 anything more or you have some material, send a private message via [mail](mailto:danielezotta@gmail.com).
 
+Informations I need:
+
+#### Vehicle Managment System
+* what is AEO HIGE and how to calculate it
+* what is AEO HOGE and how to calculate it
+* what is CAT A VTOL and how to calculate it
+* what is IBF percentage
+
+    ##### Status bottom page
+    * what is T1
+    * what is CLP
+    * what is N2 Trim
+    * what is TRQ Trim
 
 ## Basic info
 For now the application uses the XPlaneConnect plugin from NASA. You need to have that installed.
@@ -24,7 +37,6 @@ device, make sure is in the same network as your PC.
 
 ### TODO
 
-* get some info about the data displayed
 * MGB oil indicators correction
 * bottom engine screen sub menus
 * other screens than engine
