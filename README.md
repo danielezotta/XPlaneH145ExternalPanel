@@ -37,9 +37,12 @@ device, make sure is in the same network as your PC.
 
 ### TODO
 
+* Fix HYD indicators and scale
+* Add OIL Temps values
+* Add colored background when reaching limits
 * MGB oil indicators correction
-* bottom engine screen sub menus
-* other screens than engine
+* Bottom engine screen sub menus
+* Other screens than engine
 
 ## License
 

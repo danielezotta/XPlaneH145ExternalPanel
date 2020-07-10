@@ -147,8 +147,8 @@ async def send_data(websocket, path):
             values["oil_2"] = round(res[8][1], 1)
             values["lat"] = round(res[9][0], 4)
             values["lon"] = round(res[10][0], 4)
-            values["hyd_1"] = round(res[11][0], 1)
-            values["hyd_2"] = round(res[12][0], 1)
+            values["hyd_1"] = round(res[11][0], 2)
+            values["hyd_2"] = round(res[12][0], 2)
             values["gen_1"] = res[13][0]
             values["gen_2"] = res[13][1]
             values["genamps_1"] = "{:.1f}".format(round(res[14][0], 1))
